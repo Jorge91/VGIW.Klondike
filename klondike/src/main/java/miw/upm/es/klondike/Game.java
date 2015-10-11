@@ -3,6 +3,7 @@ package miw.upm.es.klondike;
 public class Game {
 	
 	private Board board;
+	private static Game game;
 	
 	
 	//private ColocateControllerFactory colocateControllerFactory;
@@ -19,16 +20,24 @@ public class Game {
 	}
 
 	public static void main(String[] args) {
-		new Game().play();
+		Game.getGame().play();
 	}
 
 	
-	public Game() {
+	private Game() {
 		super();
 		
 		this.board = new Board();
 		this.gameController = new GameController(this.board);
 		this.gameView = new GameView(gameController);
+	}
+	
+	public static Game getGame() {
+		if (game == null) {
+			game = new Game();
+		} 
+		return game;
+		
 	}
 	
 	

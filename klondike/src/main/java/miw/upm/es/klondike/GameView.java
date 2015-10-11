@@ -11,13 +11,14 @@ public class GameView {
 		super();
 		this.gameController = gameController;
 		cardsAreaView = new CardsAreaView(new CardsAreaController(gameController.getBoard()));
+		menuView = new MenuView(new MenuController(gameController.getBoard()));
 		
 		
 	}
 	
 	public void render() {
 		cardsAreaView.render();
-		//menuView.render();
+		menuView.render();
 	}
 	
 	

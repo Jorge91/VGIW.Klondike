@@ -14,6 +14,10 @@ public class Deck {
 	public void add(Card card) {
 		this.cards.add(card);
 	}
+	
+	public Card removeAndRetrieveLast() {
+		return (Card) this.cards.remove(cards.size() - 1);
+	}
 
 	public Deck(List<Card> cards) {
 		super();

@@ -21,6 +21,10 @@ public class Board {
 	
 	// isFinished
 	
+	//public Board getBoard() {
+		
+	//}
+	
 	// Constructor por defecto: inicializa todos los mazos
 	public Board() {
 		List<Card> totalCards = new ArrayList<Card>();
@@ -38,7 +42,9 @@ public class Board {
 			Deck deck = new Deck();
 			for (int m = 1; m <= k + 1 ; m++) {
 				int index = (int) randomGenerator.nextInt(totalCards.size());
-		        deck.add((Card) totalCards.remove(index));
+				Card card = (Card) totalCards.remove(index);
+				if (m == k+1) card.setCovered(false);
+		        deck.add(card);
 			}
 			this.tableau.add(deck);
 		}

@@ -26,7 +26,11 @@ public class Card {
 	}
 	
 	public String getCardName() {
-		return value + foundation;
+		return "[" + value + foundation + "]";
+	}
+
+	public void setCovered(boolean covered) {
+		this.covered = covered;
 	}
 	
 }

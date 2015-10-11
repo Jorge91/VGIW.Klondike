@@ -17,6 +17,4 @@ public class TableauDeckController extends CardDeckController {
 		return position + 1;
 	}
 	
-	
-	
 }
