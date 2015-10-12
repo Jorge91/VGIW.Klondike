@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Deck {
 
-	private List<Card> cards; 
+	protected List<Card> cards; 
 	
 	public List<Card> getCards() {
 		return cards;
@@ -13,6 +13,10 @@ public class Deck {
 
 	public void add(Card card) {
 		this.cards.add(card);
+	}
+	
+	public void addToBegginning(Card card) {
+		this.cards.add(0, card);
 	}
 	
 	public Card removeAndRetrieveLast() {
@@ -28,4 +32,6 @@ public class Deck {
 		super();
 		this.cards = new ArrayList<Card>();
 	}	
+	
+	
 }

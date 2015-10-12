@@ -1,14 +1,20 @@
 package miw.upm.es.klondike;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 public class Board {
 	
 	//TODO:
 	public static final int cardsByFoundation = 12;
-	public static final String[] foundations = {"o", "c", "e", "b"};
+	public static final Foundation[] foundations = {new Foundation("o"), 
+													new Foundation("c"), 
+													new Foundation("e"), 
+													new Foundation("b")
+													};
 	public static final int numberOfTableauDecks = 7;
 	
 	private Random randomGenerator;
@@ -16,7 +22,7 @@ public class Board {
 	public List<Deck> tableau; 
 	public Deck mainDeck;
 	public Deck waste;
-	public List<Deck> foundation;
+	public Map<Foundation, FoundationDeck> foundation;
 	
 	
 	// isFinished
@@ -50,9 +56,9 @@ public class Board {
 		}
 		
 		// Los 4 palos
-		this.foundation = new ArrayList<Deck>();
+		this.foundation = new HashMap<Foundation, FoundationDeck>();
 		for (int n = 0; n < foundations.length; n++) {
-			this.foundation.add(new Deck());
+			this.foundation.put(foundations[n], new FoundationDeck(foundations[n]));
 		}
 		
 		// Mazo principal
@@ -78,8 +84,12 @@ public class Board {
 	}
 
 
-	public List<Deck> getFoundation() {
+	public Map<Foundation, FoundationDeck> getFoundation() {
 		return foundation;
+	}
+	
+	public Deck getFoundationDeckByFoundation(Foundation foundation) {
+		return this.foundation.get(foundation);
 	}
 
 

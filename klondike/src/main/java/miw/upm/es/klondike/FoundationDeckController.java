@@ -2,19 +2,19 @@ package miw.upm.es.klondike;
 
 public class FoundationDeckController extends CardDeckController {
 
-	private int position;
+	private Foundation foundation;
 	
-	public FoundationDeckController(Board board, int position) {
+	public FoundationDeckController(Board board, Foundation foundation) {
 		super(board);
-		this.position = position;
+		this.foundation = foundation;
 	}
 
 	public Deck visibleDeck() {
-		return board.getFoundation().get(position);
+		return board.getFoundation().get(foundation);
 	}
 	
 	public String getFoundationName() {
-		return Board.foundations[position];
+		return foundation.getName();
 	}
 	
 	

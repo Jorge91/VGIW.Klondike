@@ -17,6 +17,8 @@ public class MenuView {
 		// TODO: con factory
 		this.optionViews = new ArrayList<OptionView>();
 		this.optionViews.add(new MoveMainToWasteOptionView(new MoveMainToWasteOptionController(board)));
+		this.optionViews.add(new MoveWasteToMainOptionView(new MoveWasteToMainOptionController(board)));
+		this.optionViews.add(new MoveWasteToTableauOptionView(new MoveWasteToTableauOptionController(board)));
 	}
 
 	public void render() {
@@ -37,6 +39,7 @@ public class MenuView {
 			io.write("No hay opciones" );
 		} else {
 			int optionChosen = -1;
+			//TODO: usar AskNumberView
 			while(optionChosen < 0 || optionChosen > optionViews.size()){
 			optionChosen =  io.readInt("¿Opción? [1-" + optionViews.size() + "]: " );
 			}

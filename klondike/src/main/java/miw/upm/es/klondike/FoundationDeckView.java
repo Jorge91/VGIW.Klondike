@@ -2,8 +2,6 @@ package miw.upm.es.klondike;
 
 public class FoundationDeckView extends CardDeckView {
 
-	
-
 	public FoundationDeckView(FoundationDeckController controller) {
 		super(controller);
 	}

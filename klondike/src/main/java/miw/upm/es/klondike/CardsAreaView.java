@@ -21,8 +21,8 @@ public class CardsAreaView {
 		wasteDeckView = new WasteDeckView(new WasteDeckController(board));
 		
 		foundationDeckViews = new ArrayList<FoundationDeckView>();
-		for (int i = 0; i < board.getFoundation().size(); i++) {
-			foundationDeckViews.add(new FoundationDeckView(new FoundationDeckController(board, i)));
+		for (int i = 0; i < board.foundations.length; i++) {
+			foundationDeckViews.add(new FoundationDeckView(new FoundationDeckController(board, board.foundations[i])));
 		}
 		
 		tableauDeckViews = new ArrayList<TableauDeckView>();

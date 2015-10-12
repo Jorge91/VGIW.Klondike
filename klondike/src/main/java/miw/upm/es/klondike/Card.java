@@ -3,10 +3,10 @@ package miw.upm.es.klondike;
 public class Card {
 
 	private int value;
-	private String foundation;
+	private Foundation foundation;
 	private boolean covered;
 	
-	public Card(int value, String foundation, boolean covered) {
+	public Card(int value, Foundation foundation, boolean covered) {
 		super();
 		this.value = value;
 		this.foundation = foundation;
@@ -17,7 +17,7 @@ public class Card {
 		return value;
 	}
 
-	public String getFoundation() {
+	public Foundation getFoundation() {
 		return foundation;
 	}
 
@@ -26,7 +26,7 @@ public class Card {
 	}
 	
 	public String getCardName() {
-		return "[" + value + foundation + "]";
+		return "[" + value + foundation.getName() + "]";
 	}
 
 	public void setCovered(boolean covered) {
