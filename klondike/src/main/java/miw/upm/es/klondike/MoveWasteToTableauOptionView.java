@@ -9,7 +9,7 @@ public class MoveWasteToTableauOptionView extends OptionView {
 	@Override
 	public void render() {
 		IO io = new IO();
-		io.writeln("Mover de descarte a palo");
+		io.writeln("Mover de descarte a escalera");
 	}
 
 }

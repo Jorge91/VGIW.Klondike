@@ -19,19 +19,11 @@ public class Board {
 	
 	private Random randomGenerator;
 
-	public List<Deck> tableau; 
+	public List<TableauDeck> tableau; 
 	public Deck mainDeck;
 	public Deck waste;
 	public Map<Foundation, FoundationDeck> foundation;
 	
-	
-	// isFinished
-	
-	//public Board getBoard() {
-		
-	//}
-	
-	// Constructor por defecto: inicializa todos los mazos
 	public Board() {
 		List<Card> totalCards = new ArrayList<Card>();
 		randomGenerator = new Random();
@@ -42,10 +34,9 @@ public class Board {
 			}
 		}
 		
-		// Los 7 mazos del tableau
-		this.tableau = new ArrayList<Deck>();
+		this.tableau = new ArrayList<TableauDeck>();
 		for (int k = 0; k < numberOfTableauDecks; k++) {
-			Deck deck = new Deck();
+			TableauDeck deck = new TableauDeck();
 			for (int m = 1; m <= k + 1 ; m++) {
 				int index = (int) randomGenerator.nextInt(totalCards.size());
 				Card card = (Card) totalCards.remove(index);
@@ -55,22 +46,18 @@ public class Board {
 			this.tableau.add(deck);
 		}
 		
-		// Los 4 palos
 		this.foundation = new HashMap<Foundation, FoundationDeck>();
 		for (int n = 0; n < foundations.length; n++) {
 			this.foundation.put(foundations[n], new FoundationDeck(foundations[n]));
 		}
 		
-		// Mazo principal
 		this.mainDeck = new Deck(totalCards);	
-		
-		// mazo waste
 		this.waste = new Deck();
 
 	}
 
 
-	public List<Deck> getTableau() {
+	public List<TableauDeck> getTableau() {
 		return tableau;
 	}
 
@@ -88,15 +75,25 @@ public class Board {
 		return foundation;
 	}
 	
-	public Deck getFoundationDeckByFoundation(Foundation foundation) {
+	public FoundationDeck getFoundationDeckByFoundation(Foundation foundation) {
 		return this.foundation.get(foundation);
 	}
 
 
+	public TableauDeck getTableauDeckByNumber(int selectedTableau) {
+		return tableau.get(selectedTableau);
+	}
 	
 
-
-	
+	public FoundationDeck getFoundationDeckByFoundationName(String name) {
+		Foundation foundation = null;
+		for (int i = 0; i < foundations.length; i++) {
+			System.out.println(name);
+			System.out.println(foundations[i].getName());
+			if (foundations[i].getName().matches(name)) foundation = foundations[i];
+		}
+		return getFoundationDeckByFoundation(foundation);
+	}
 	
 
 	

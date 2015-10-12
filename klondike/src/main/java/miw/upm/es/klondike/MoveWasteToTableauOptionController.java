@@ -8,18 +8,20 @@ public class MoveWasteToTableauOptionController extends OptionController {
 
 	@Override
 	public void performAction() {
-		
 		if (board.waste.getCards().size() > 0){
 			Card card = board.waste.removeAndRetrieveLast();
 			
-			FoundationDeck foundationDeck = (FoundationDeck) board.getFoundationDeckByFoundation(card.getFoundation());
-			boolean canAdd = foundationDeck.canAddCard(card.getValue(), card.getFoundation());
+			int numberOfTableaus = board.getTableau().size();
+			int selectedTableau = new AskNumberView().askNumberView(numberOfTableaus, "¿Mover a qué escalera?");
+			
+			TableauDeck tableauDeck = (TableauDeck) board.getTableauDeckByNumber(selectedTableau);
+			boolean canAdd = tableauDeck.canAddCard(card.getValue(), card.getFoundation());
 			
 			if (!canAdd) {
 				board.waste.add(card);
 				new ErrorView().render();
 			} else {
-				foundationDeck.add(card);
+				tableauDeck.add(card);
 			}
 	
 			

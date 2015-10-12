@@ -18,37 +18,30 @@ public class MenuView {
 		this.optionViews = new ArrayList<OptionView>();
 		this.optionViews.add(new MoveMainToWasteOptionView(new MoveMainToWasteOptionController(board)));
 		this.optionViews.add(new MoveWasteToMainOptionView(new MoveWasteToMainOptionController(board)));
+		this.optionViews.add(new MoveWasteToFoundationOptionView(new MoveWasteToFoundationOptionController(board)));
 		this.optionViews.add(new MoveWasteToTableauOptionView(new MoveWasteToTableauOptionController(board)));
+		this.optionViews.add(new MoveTableauToFoundationOptionView(new MoveTableauToFoundationOptionController(board)));
+		this.optionViews.add(new MoveTableauToTableauOptionView(new MoveTableauToTableauOptionController(board)));
+		this.optionViews.add(new MoveFoundationToTableauOptionView(new MoveFoundationToTableauOptionController(board)));
+		this.optionViews.add(new FlipOptionView(new FlipOptionController(board)));
+		this.optionViews.add(new ExitOptionView(new ExitOptionController(board)));
+		
 	}
 
 	public void render() {
 		IO io = new IO();
 		io.writeln("-----------------");
 		
-		// render all options
 		//TODO: factory
 		for (int i = 0; i < optionViews.size(); i++) {
 			io.write((i + 1) + ": ");
 			optionViews.get(i).render();
 		}
 		
-		
-		
-		// render ask
 		if (optionViews.size() == 0) {
 			io.write("No hay opciones" );
 		} else {
-			int optionChosen = -1;
-			//TODO: usar AskNumberView
-			while(optionChosen < 0 || optionChosen > optionViews.size()){
-			optionChosen =  io.readInt("¿Opción? [1-" + optionViews.size() + "]: " );
-			}
-			// respuesta: llamar al controller
-			menuController.performOption(optionViews.get(optionChosen - 1));
-			
-			
-			
-			
+			menuController.performOption(optionViews.get(new AskNumberView().askNumberView(optionViews.size(), "¿Opción?")));
 		}
 		
 		

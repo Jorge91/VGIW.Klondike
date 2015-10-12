@@ -27,14 +27,14 @@ public class FoundationDeck extends Deck {
 			lastCard = cards.get(cards.size() - 1);
 		}
 		
-		int majorValue;
+		int minorValue;
 		if (lastCard == null) {
-			majorValue = Board.cardsByFoundation + 1;
+			minorValue = 0;
 		} else {
-			majorValue = lastCard.getValue();
+			minorValue = lastCard.getValue();
 		}
 		
-		if (cardValue + 1 != majorValue) {
+		if (cardValue != minorValue + 1) {
 			return false;
 		}
 		

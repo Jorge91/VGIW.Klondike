@@ -7,10 +7,10 @@ public class AskNumberView {
 		IO io = new IO();
 		int optionChosen = -1;
 		
-		while(optionChosen < 0 || optionChosen > sizeOfOptions){
+		while(optionChosen <= 0 || optionChosen > sizeOfOptions){
 			optionChosen =  io.readInt(question + "[1-" + sizeOfOptions + "]: " );
 		}
-		return optionChosen;
+		return optionChosen - 1;
 		
 	}
 

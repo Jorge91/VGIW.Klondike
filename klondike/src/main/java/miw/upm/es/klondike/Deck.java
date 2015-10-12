@@ -33,5 +33,13 @@ public class Deck {
 		this.cards = new ArrayList<Card>();
 	}	
 	
+	public int uncoveredCards() {
+		int uncovered = 0;
+		for (int i = 0; i < cards.size(); i++) {
+			if (!cards.get(i).isCovered()) uncovered++;
+		}
+		return uncovered;
+	}
+	
 	
 }
