@@ -5,5 +5,5 @@ public class GameController extends Controller {
 	protected GameController(Board board) {
 		super(board);
 	}
-	
+
 }

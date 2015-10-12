@@ -49,7 +49,6 @@ public class MoveTableauToTableauOptionController extends OptionController {
 			}
 		}
 
-
 		Game.getGame().play();
 	}
 

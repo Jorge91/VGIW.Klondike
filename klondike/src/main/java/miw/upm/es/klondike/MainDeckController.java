@@ -9,7 +9,5 @@ public class MainDeckController extends CardDeckController {
 	public Deck visibleDeck() {
 		return board.getMain();
 	}
-	
-	
-	
+
 }

@@ -1,7 +1,5 @@
 package miw.upm.es.klondike;
 
-import java.util.List;
-
 public class TableauDeck extends Deck {
 
 	public boolean canAddCard(int cardValue, Foundation foundation) {

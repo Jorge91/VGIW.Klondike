@@ -12,6 +12,4 @@ public class FlipOptionView extends OptionView {
 		io.writeln("Voltear carta");
 	}
 
-	
-
 }

@@ -5,7 +5,7 @@ public class Card {
 	private int value;
 	private Foundation foundation;
 	private boolean covered;
-	
+
 	public Card(int value, Foundation foundation, boolean covered) {
 		super();
 		this.value = value;
@@ -24,7 +24,7 @@ public class Card {
 	public boolean isCovered() {
 		return covered;
 	}
-	
+
 	public String getCardName() {
 		return "[" + value + foundation.getName() + "]";
 	}
@@ -32,5 +32,5 @@ public class Card {
 	public void setCovered(boolean covered) {
 		this.covered = covered;
 	}
-	
+
 }

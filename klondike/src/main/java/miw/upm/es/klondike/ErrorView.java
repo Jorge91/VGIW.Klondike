@@ -7,6 +7,5 @@ public class ErrorView {
 		io.writeln("No se puede realizar");
 		io.writeln("--------------------");
 	}
-	
-}
 
+}

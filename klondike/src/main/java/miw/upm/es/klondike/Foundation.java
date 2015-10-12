@@ -16,11 +16,9 @@ public class Foundation {
 		super();
 		this.name = name;
 	}
-	
+
 	public boolean compareFoundations(Foundation foundation) {
 		return this.name == foundation.getName();
 	}
-	
-	
-	
+
 }

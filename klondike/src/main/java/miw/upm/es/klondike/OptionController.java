@@ -7,7 +7,5 @@ public abstract class OptionController extends Controller {
 	}
 
 	public abstract void performAction();
-	
-	
 
 }

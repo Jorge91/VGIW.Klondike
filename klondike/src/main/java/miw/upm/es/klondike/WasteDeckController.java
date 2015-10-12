@@ -9,6 +9,5 @@ public class WasteDeckController extends CardDeckController {
 	public Deck visibleDeck() {
 		return board.getWaste();
 	}
-	
-	
+
 }

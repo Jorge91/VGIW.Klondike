@@ -10,19 +10,19 @@ public abstract class CardDeckView {
 		this.controller = controller;
 		deck = this.controller.visibleDeck();
 	}
-	
+
 	public void render() {
 		IO io = new IO();
-		
+
 		String toPrint = "";
 		for (int i = 0; i < deck.getCards().size(); i++) {
 			Card card = deck.getCards().get(i);
 			toPrint += card.isCovered() ? "]" : card.getCardName();
 		}
-		if (toPrint == "") toPrint = "<vacío>";
-		
+		if (toPrint == "")
+			toPrint = "<vacío>";
+
 		io.writeln(toPrint);
 	}
-	
-	
+
 }

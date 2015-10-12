@@ -12,6 +12,4 @@ public class MoveWasteToMainOptionView extends OptionView {
 		io.writeln("Mover de descarte a baraja");
 	}
 
-	
-
 }
